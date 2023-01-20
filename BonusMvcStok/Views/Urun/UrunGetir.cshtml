@@ -1,0 +1,39 @@
+﻿@model BonusMvcStok.Models.Entity.tblurunler
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("UrunGuncelle", "Urun", FormMethod.Post))
+{
+    <h2>Urun Güncelleme</h2>
+    <br />
+    <label>Kategori Adını Giriniz...</label>
+    <br />
+    @Html.HiddenFor(x => x.id, new { @class = "form-control" })
+    <br />
+    @Html.TextBoxFor(x => x.ad, new { @class = "form-control" })
+    <br />
+    <label>Marka</label>
+    <br />
+    @Html.TextBoxFor(x => x.marka, new { @class = "form-control" })
+    <br />
+    <label>Stok</label>
+    <br />
+    @Html.TextBoxFor(x => x.stok, new { @class = "form-control" })
+    <br />
+    <label>Alış Fiyat</label>
+    <br />
+    @Html.TextBoxFor(x => x.alisfiyat, new { @class = "form-control" })
+    <br />
+    <label>Satis Fiyat</label>
+    <br />
+    @Html.TextBoxFor(x => x.satisfiyat, new { @class = "form-control" })
+    <br />
+    <label>Kategori</label>
+    <br />
+    @Html.DropDownListFor(x => x.tblkategori.id, (List<SelectListItem>)ViewBag.urunkategori, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">GÜNCELLE</button>
+}
